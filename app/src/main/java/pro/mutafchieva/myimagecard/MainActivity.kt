@@ -35,9 +35,15 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -60,6 +66,9 @@ class MainActivity : ComponentActivity() {
         title: String,
         modifier: Modifier
     ){
+        var fontFamily = FontFamily(
+            Font(R.font.mooli_regular, FontWeight.Medium)
+        )
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
             modifier = Modifier
@@ -88,7 +97,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Text(
                                 text = title,
-                                style = TextStyle(color = Color.Red, fontSize = 20.sp),
+                                style = TextStyle(color = Color.Black, fontSize = 20.sp),
                                 textAlign = TextAlign.Center
                             )
                         }
@@ -100,11 +109,18 @@ class MainActivity : ComponentActivity() {
                         .background(Color.Magenta),
                         contentAlignment = Alignment.BottomEnd) {
                         Text(
-                            text = resources.getString(R.string.card_text),
+                            text = buildAnnotatedString {
+                                withStyle(style = SpanStyle(color = Color.Yellow, fontSize = 20.sp))
+                                {
+                                    append(resources.getString(R.string.card_text_f_letter))
+                                }
+                                append(resources.getString(R.string.card_text))
+                            },
                             style = TextStyle(
                                 color = Color.White,
                                 fontSize = 12.sp,
-                                fontStyle = FontStyle.Italic
+                                fontStyle = FontStyle.Italic,
+                                fontFamily = fontFamily
                             ),
                             textAlign = TextAlign.Center,
                             modifier = Modifier.padding(15.dp)
