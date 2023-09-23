@@ -36,6 +36,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var painter = painterResource(id = R.drawable.card_background)
-            ImageCard(painter = painter, descrContent ="bacground with flowers" , title ="Maria Mutafchieva, Android Developer" , modifier = Modifier)
+            ImageCard(painter = painter, descrContent ="bacground with flowers" , title = resources.getString(R.string.card_title), modifier = Modifier)
         }
     }
 
@@ -99,10 +100,11 @@ class MainActivity : ComponentActivity() {
                         .background(Color.Magenta),
                         contentAlignment = Alignment.BottomEnd) {
                         Text(
-                            text = "Find more from me in Github",
+                            text = resources.getString(R.string.card_text),
                             style = TextStyle(
                                 color = Color.White,
                                 fontSize = 12.sp,
+                                fontStyle = FontStyle.Italic
                             ),
                             textAlign = TextAlign.Center,
                             modifier = Modifier.padding(15.dp)

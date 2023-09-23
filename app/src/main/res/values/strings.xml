@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyImageCard</string>
+    <string name="card_title">Maria Mutafchieva, Android developer</string>
+    <string name="card_text">Find more from me in Git Hub</string>
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Моята Картичка</string>
+    <string name="card_title">Мария Мутафчиева, Android програмист</string>
+    <string name="card_text">Намерете повече от мен в Git Hub</string>
+</resources>
